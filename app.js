@@ -4,6 +4,8 @@ const port = 5000
 const connection = require('./database/connect')
 const session = require('./middleware/session')
 const passport = require('passport');
+const routes = require('./routes')
+const errorHandler = require('./middleware/errorHandler')
 
 
 // -------middleware----------- //
@@ -32,3 +34,5 @@ const start =  async () =>{
     }
 }
 start()
+
+app.use(errorHandler)
