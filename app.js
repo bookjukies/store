@@ -5,6 +5,7 @@ const connection = require('./database/connect')
 const session = require('./middleware/session')
 const passport = require('passport');
 const routes = require('./routes')
+const uploadRouter = require('./utils/upload')
 const errorHandler = require('./middleware/errorHandler')
 
 
@@ -19,7 +20,7 @@ require('./config/passport')
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(routes);
+app.use(routes, uploadRouter);
 
 
 const start =  async () =>{
