@@ -1,6 +1,6 @@
 const express = require("express")
 const app =  express()
-const port = 5000
+const port = process.env.PORT || 5000
 const connection = require('./database/connect')
 const session = require('./middleware/session')
 const passport = require('passport');
